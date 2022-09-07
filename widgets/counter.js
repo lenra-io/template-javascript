@@ -13,7 +13,7 @@ module.exports = (data, counter) => {
         "children": [
           {
             "type": "text",
-            "value": `${counter.text}: ${data.counter}`
+            "value": `${counter.text}: ${data[0].count}`
           },
           {
             "type": "button",
@@ -21,8 +21,8 @@ module.exports = (data, counter) => {
             "onPressed": {
                 "action": "increment",
                 "props": {
-                    "id": data.id,
-                    "datastore": data.datastore
+                    "id": data[0]._id,
+                    "datastore": data[0].datastore
                 }
             }
           }

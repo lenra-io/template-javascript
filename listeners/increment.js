@@ -8,7 +8,9 @@ module.exports = async (props, event, api) => {
     console.log(event);
     console.log(api);
 
-    let counter = await apiService.getData(api, props.datastore, props.id);
+    let counter = await apiService.getData(api, props.datastore, props.id).data;
+    console.log("COUNTER");
+    console.log(counter);
     counter.count += 1;
     await apiService.updateData(api, counter);
     return {};
