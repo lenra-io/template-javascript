@@ -6,14 +6,12 @@ module.exports = async () => {
     widgets: {
       main: require('./widgets/main'),
       userData: require('./widgets/userData'),
-      counters: require('./widgets/counters'),
-      counter: require('./widgets/counter')
+      counter: require('./widgets/counter'),
+      home: require('./widgets/home'),
+      menu: require('./widgets/menu'),
     },
     listeners: {
       increment: require('./listeners/increment'),
-      decrement: require('./listeners/decrement'),
-      newCounter: require("./listeners/newCounter"),
-      deleteCounter: require("./listeners/deleteCounter"),
       onEnvStart: require('./listeners/onEnvStart'),
       onUserFirstJoin: require('./listeners/onUserFirstJoin')
     },

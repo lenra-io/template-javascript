@@ -1,8 +1,15 @@
 'use strict'
 
-const counterService = require("../services/counterService");
+const apiService = require("../services/api");
 
-module.exports = (counter, event, api) => {
-    counter.value += 1;
-    return counterService.put(api, counter);
+module.exports = async (props, event, api) => {
+    console.log("INCREMENT");
+    console.log(props);
+    console.log(event);
+    console.log(api);
+
+    let counter = await apiService.getData(api, props.datastore, props.id);
+    counter.count += 1;
+    await apiService.updateData(api, counter);
+    return {};
 }

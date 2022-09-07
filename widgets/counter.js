@@ -1,38 +1,32 @@
 'use strict'
 
 module.exports = (data, counter) => {
+    console.log("COUNTER");
+    console.log(data);
+    console.log(counter);
+
     return {
-        type: "flex",
-        children: [
-            {
-                type: "button",
-                text: "-",
-                onPressed: {
-                    action: "decrement",
-                    props: counter
+        "type": "flex",
+        "spacing": 2,
+        "mainAxisAlignment": "spaceEvenly",
+        "crossAxisAlignment": "center",
+        "children": [
+          {
+            "type": "text",
+            "value": `${counter.text}: ${data.counter}`
+          },
+          {
+            "type": "button",
+            "text": "+",
+            "onPressed": {
+                "action": "increment",
+                "props": {
+                    "id": data.id,
+                    "datastore": data.datastore
                 }
-            },
-            {
-                type: "text",
-                value: counter.value.toString()
-            },
-            {
-                type: "button",
-                text: "+",
-                onPressed: {
-                    action: "increment",
-                    props: counter
-                }
-            },
-            {
-                type: "button",
-                text: "DEL",
-                onPressed: {
-                    action: "deleteCounter",
-                    props: counter
-                }
-            },
+            }
+          }
         ]
-    }
+      }
 }
 
