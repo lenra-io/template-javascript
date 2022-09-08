@@ -8,7 +8,7 @@ module.exports = async (props, event, api) => {
         "user": "@me"
     })
 
-    let counters = res.data.data;
+    let counters = res.data;
     if (counters.length == 0) {
         await apiService.createDoc(api, "counter", {
             "user": "@me",
