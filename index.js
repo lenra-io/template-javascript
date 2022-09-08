@@ -13,6 +13,7 @@ module.exports = async () => {
     listeners: {
       increment: require('./listeners/increment'),
       onEnvStart: require('./listeners/onEnvStart'),
+      onSessionStart: require('./listeners/onSessionStart'),
       onUserFirstJoin: require('./listeners/onUserFirstJoin')
     },
     rootWidget: 'main'

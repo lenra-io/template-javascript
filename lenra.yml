@@ -1,16 +1,16 @@
 componentsApi: "1.0"
 generator:
-  dofigen: 
+  dofigen:
     image: node:16-alpine
     user: "0"
-    adds: 
+    adds:
       - "."
-    script: 
+    script:
       - npm i
-    cmd: 
+    cmd:
       - node
       - server.js
     ports:
-    - 3000
+      - 3000
 dev:
-  devtoolTag: local
+  devtoolTag: mongo

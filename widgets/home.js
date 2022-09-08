@@ -11,21 +11,18 @@ module.exports = (data, counter) => {
             {
                 "type": "widget",
                 "name": "counter",
+                "coll": "counter",
                 "query": {
-                    "$find": {
-                        "_datastore": "_users",
-                        "_id": "@me"
-                    }
+                    "user": "@me"
                 },
                 "props": { text: "My personnal counter" }
             },
             {
                 "type": "widget",
                 "name": "counter",
+                "coll": "counter",
                 "query": {
-                    "$find": {
-                        "_datastore": "counter",
-                    }
+                    "user": "global"
                 },
                 "props": { text: "The common counter" }
             }
