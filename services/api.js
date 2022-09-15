@@ -16,7 +16,7 @@ module.exports = {
         return axios.delete(`${api.url}/app/colls/${coll}/docs/${doc._id}`, options(api));
     },
     executeQuery(api, coll, query) {
-        return axios.post(`${api.url}/app/colls/${coll}/docs/filter`, query, options(api));
+        return axios.post(`${api.url}/app/colls/${coll}/docs/find`, query, options(api));
     }
 }
 
