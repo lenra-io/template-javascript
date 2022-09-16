@@ -3,23 +3,20 @@
 const { default: axios } = require("axios");
 
 module.exports = {
-    getData(api, datastore, id) {
-        return axios.get(`${api.url}/app/datastores/${datastore}/data/${id}`, options(api));
+    getDoc(api, coll, id) {
+        return axios.get(`${api.url}/app/colls/${coll}/docs/${id}`, options(api));
     },
-    createData(api, data) {
-        return axios.post(`${api.url}/app/datastores/${data.datastore}/data`, data, options(api));
+    createDoc(api, coll, doc) {
+        return axios.post(`${api.url}/app/colls/${coll}/docs`, doc, options(api));
     },
-    updateData(api, data) {
-        return axios.put(`${api.url}/app/datastores/${data.datastore}/data/${data._id}`, data, options(api));
+    updateDoc(api, coll, doc) {
+        return axios.put(`${api.url}/app/colls/${coll}/docs/${doc._id}`, doc, options(api));
     },
-    deleteData(api, datastore, data) {
-        return axios.delete(`${api.url}/app/datastores/${datastore}/data/${data._id}`, options(api));
+    deleteDoc(api, coll, doc) {
+        return axios.delete(`${api.url}/app/colls/${coll}/docs/${doc._id}`, options(api));
     },
-    createDatastore(api, datastore) {
-        return axios.post(`${api.url}/app/datastores`, { "name": datastore }, options(api));
-    },
-    executeQuery(api, query) {
-        return axios.post(`${api.url}/app/query`, query, options(api));
+    executeQuery(api, coll, query) {
+        return axios.post(`${api.url}/app/colls/${coll}/docs/find`, query, options(api));
     }
 }
 

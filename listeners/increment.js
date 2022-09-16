@@ -3,8 +3,10 @@
 const apiService = require("../services/api");
 
 module.exports = async (props, event, api) => {
-    let counter = (await apiService.getData(api, props.datastore, props.id)).data.data;
+
+    let res = await apiService.getDoc(api, "counter", props.id);
+    let counter = res.data
     counter.count += 1;
-    await apiService.updateData(api, counter);
+    await apiService.updateDoc(api, "counter", counter);
     return {};
 }
