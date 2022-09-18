@@ -1,14 +1,26 @@
 componentsApi: "1.0"
 generator:
   dofigen:
-    image: node:16-alpine
-    user: "0"
+    from: "bitnami/node:16"
+    workdir: /app
+    root:
+      script:
+      - chown -R 1000 /app
     adds:
-      - "."
+    - .
     script:
-      - npm i
+    - npm i --omit=dev
     cmd:
       - node
       - server.js
     ports:
       - 3000
+    ignores:
+    - "**"
+    - "!/*.json"
+    - "!/server.js"
+    - "!/index.js"
+    - "!/listeners/"
+    - "!/resources/"
+    - "!/services/"
+    - "!/widgets/"
