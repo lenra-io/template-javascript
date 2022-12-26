@@ -15,12 +15,12 @@ const rawLimit = process.env.MAX_RAW_SIZE || defaultMaxSize;
 const jsonLimit = process.env.MAX_JSON_SIZE || defaultMaxSize;
 
 let listenerHandlers = null;
-let widgetHandlers = null;
+let viewHandlers = null;
 let manifest = null;
 
 const RESOURCE_TYPE = "resource";
 const LISTENER_TYPE = "listener";
-const WIDGET_TYPE = "widget";
+const VIEW_TYPE = "view";
 const MANIFEST_TYPE = "manifest";
 
 app.disable('x-powered-by');
@@ -58,8 +58,8 @@ const get_req_type = (req) => {
         return RESOURCE_TYPE;
     } else if (req.body.action) {
         return LISTENER_TYPE;
-    } else if (req.body.widget) {
-        return WIDGET_TYPE;
+    } else if (req.body.view) {
+        return VIEW_TYPE;
     } else {
         return MANIFEST_TYPE;
     }
@@ -75,8 +75,8 @@ const middleware = async (req, res) => {
             handleAppListener(req, res);
             break;
 
-        case WIDGET_TYPE:
-            handleAppWidget(req, res);
+        case VIEW_TYPE:
+            handleAppView(req, res);
             break;
 
         case MANIFEST_TYPE:
@@ -103,14 +103,14 @@ function handleAppResource(req, res) {
 async function initManifest() {
     if (manifest == null) {
         let tempManifest = await manifestHandler();
-        widgetHandlers = tempManifest.widgets;
+        viewHandlers = tempManifest.views;
         listenerHandlers = tempManifest.listeners || {};
-        widgetHandlers = tempManifest.widgets;
+        viewHandlers = tempManifest.views;
         listenerHandlers = tempManifest.listeners || {};
         manifest = {
-            widgets: Object.keys(widgetHandlers),
+            views: Object.keys(viewHandlers),
             listeners: Object.keys(listenerHandlers),
-            rootWidget: tempManifest.rootWidget
+            rootView: tempManifest.rootView
         };
     }
     return Promise.resolve(manifest);
@@ -130,24 +130,24 @@ async function handleAppManifest(req, res) {
         });
 }
 
-async function handleAppWidget(req, res) {
-    let { widget, data, props } = req.body;
+async function handleAppView(req, res) {
+    let { view, data, props } = req.body;
 
-    if (Object.keys(widgetHandlers).includes(widget)) {
-        let possibleFutureRes = widgetHandlers[widget](data, props)
+    if (Object.keys(viewHandlers).includes(view)) {
+        let possibleFutureRes = viewHandlers[view](data, props)
 
         return Promise.resolve(possibleFutureRes)
-            .then(widget => {
+            .then(view => {
 
-                res.status(200).json({ widget: widget });
+                res.status(200).json({ view: view });
             })
             .catch(err => {
                 const err_string = err.toString ? err.toString() : err;
-                console.error('handleAppWidget:', err_string);
+                console.error('handleAppView:', err_string);
                 res.status(500).send(err_string);
             });
     } else {
-        let msg = `No widget found for name ${widget} in app manifest.`;
+        let msg = `No view found for name ${view} in app manifest.`;
         console.error(msg);
         res.status(404).send(msg);
     }
@@ -160,7 +160,7 @@ async function handleAppWidget(req, res) {
  * This function will call the index.js file of the application
  * when the page change.
  * If an event is triggered, the matched event function provided by the app is triggered.
- * The event can be a listener or a widget update.
+ * The event can be a listener or a view update.
  */
 async function handleAppListener(req, res) {
     let { action, props, event, api } = req.body;
