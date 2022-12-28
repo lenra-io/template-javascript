@@ -1,14 +1,14 @@
 'use strict'
-// Widgets
+// Views
 
 module.exports = async () => {
   return {
-    widgets: {
-      main: require('./widgets/main'),
-      userData: require('./widgets/userData'),
-      counter: require('./widgets/counter'),
-      home: require('./widgets/home'),
-      menu: require('./widgets/menu'),
+    views: {
+      main: require('./views/main'),
+      userData: require('./views/userData'),
+      counter: require('./views/counter'),
+      home: require('./views/home'),
+      menu: require('./views/menu'),
     },
     listeners: {
       increment: require('./listeners/increment'),
@@ -16,6 +16,6 @@ module.exports = async () => {
       onSessionStart: require('./listeners/onSessionStart'),
       onUserFirstJoin: require('./listeners/onUserFirstJoin')
     },
-    rootWidget: 'main'
+    rootView: 'main'
   }
 }
