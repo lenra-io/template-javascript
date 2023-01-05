@@ -108,8 +108,6 @@ async function initManifest() {
         viewHandlers = tempManifest.views;
         listenerHandlers = tempManifest.listeners || {};
         manifest = {
-            views: Object.keys(viewHandlers),
-            listeners: Object.keys(listenerHandlers),
             rootView: tempManifest.rootView
         };
     }
@@ -138,8 +136,7 @@ async function handleAppView(req, res) {
 
         return Promise.resolve(possibleFutureRes)
             .then(view => {
-
-                res.status(200).json({ view: view });
+                res.status(200).json(view);
             })
             .catch(err => {
                 const err_string = err.toString ? err.toString() : err;

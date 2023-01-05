@@ -4,7 +4,7 @@ module.exports = (data, counter) => {
 
   return {
     "type": "flex",
-    "spacing": 2,
+    "spacing": 16,
     "mainAxisAlignment": "spaceEvenly",
     "crossAxisAlignment": "center",
     "children": [
