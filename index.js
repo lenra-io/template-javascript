@@ -5,7 +5,6 @@ module.exports = async () => {
   return {
     views: {
       main: require('./views/main'),
-      userData: require('./views/userData'),
       counter: require('./views/counter'),
       home: require('./views/home'),
       menu: require('./views/menu'),

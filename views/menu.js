@@ -1,62 +1,40 @@
 'use strict'
 
-module.exports = (data, props) => {
-  return {
-    "type": "container",
-    "decoration": {
-      color: 0xFFFFFFFF,
-      boxShadow: {
-        blurRadius: 8,
-        color: 0x1A000000,
-        offset: {
-          dx: 0,
-          dy: 1
-        }
-      },
-    },
-    "padding": {
-      top: 16,
-      bottom: 16,
-      left: 32,
-      right: 32,
-    },
-    "child": {
-      "type": "flex",
-      "fillParent": true,
-      "mainAxisAlignment": "spaceBetween",
-      "crossAxisAlignment": "center",
-      "padding": { right: 32 },
-      "children": [
-        {
-          "type": "container",
-          "constraints": {
-            "minWidth": 32,
-            "minHeight": 32,
-            "maxWidth": 32,
-            "maxHeight": 32,
-          },
-          "child": {
-            "type": "image",
-            "src": "logo.png"
-          },
-        },
-        {
-          "type": "flexible",
-          "child": {
-            "type": "container",
-            "child": {
-              "type": "text",
-              "value": "Hello World",
-              "textAlign": "center",
-              "style": {
-                "fontWeight": "bold",
-                "fontSize": 24,
-              },
-            }
-          }
-        }
-      ]
-    },
-  }
+const { Container, Flex, colors, padding, Image, Flexible, Text } = require("@lenra/components")
+
+module.exports = (_data, _props) => {
+  return Container(
+    Flex(
+      Container(
+        Image("logo.png")
+      )
+        .width(32)
+        .height(32),
+      Flexible(
+        Container(
+          Text("Hello World")
+            .textAlign("center")
+            .style({
+              "fontWeight": "bold",
+              "fontSize": 24,
+            })
+        )
+      )
+    )
+      .fillParent(true)
+      .mainAxisAlignment("spaceBetween")
+      .crossAxisAlignment("center")
+      .padding({ right: 32 })
+  )
+    .color(colors.Colors.white)
+    .boxShadow({
+      blurRadius: 8,
+      color: 0x1A000000,
+      offset: {
+        dx: 0,
+        dy: 1
+      }
+    })
+    .padding(padding.symmetric(32, 16))
 }
 

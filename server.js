@@ -5,7 +5,7 @@
 "use strict"
 
 const express = require('express');
-const morgan = require('morgan');
+const { writeFileSync } = require('fs');
 const app = express();
 
 const manifestHandler = require('./index.js');
@@ -25,15 +25,6 @@ const MANIFEST_TYPE = "manifest";
 
 app.disable('x-powered-by');
 
-app.use(morgan(function (tokens, req, res) {
-    return [
-        tokens.method(req, res),
-        tokens.url(req, res),
-        'type:', get_req_type(req),
-        tokens.status(req, res),
-        tokens['response-time'](req, res), 'ms'
-    ].join(' ')
-}))
 app.use(function addDefaultContentType(req, res, next) {
     // When no content-type is given, the body element is set to
     // nil, and has been a source of contention for new users.
@@ -84,7 +75,7 @@ const middleware = async (req, res) => {
             break;
 
         default:
-            throw "Middleware type unknown.";
+            throw new Error("Middleware type unknown.");
 
     }
 };
@@ -189,7 +180,8 @@ const port = process.env.http_port || 3000;
 
 initManifest().then(() => {
     app.listen(port, () => {
-        console.log(`node12 listening on port: ${port}`)
+        writeFileSync("/tmp/.lock", "\n");
+        console.log(`App listening on port: ${port}`)
     });
 }).catch(err => {
     console.error(err);
