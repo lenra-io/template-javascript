@@ -1,29 +1,18 @@
 'use strict'
 
-module.exports = (data, counter) => {
+const { Flex, Text, Button } = require("@lenra/components")
 
-  return {
-    "type": "flex",
-    "spacing": 16,
-    "mainAxisAlignment": "spaceEvenly",
-    "crossAxisAlignment": "center",
-    "children": [
-      {
-        "type": "text",
-        "value": `${counter.text}: ${data[0].count}`
-      },
-      {
-        "type": "button",
-        "text": "+",
-        "onPressed": {
-          "action": "increment",
-          "props": {
-            "id": data[0]._id,
-            "datastore": data[0].datastore
-          }
-        }
-      }
-    ]
-  }
+module.exports = ([counter], { text }) => {
+  return Flex(
+    Text(`${text}: ${counter.count}`),
+    Button("+")
+      .onPressed("increment", {
+        "id": counter._id,
+        "datastore": counter.datastore
+      })
+  )
+    .spacing(16)
+    .mainAxisAlignment("spaceEvenly")
+    .crossAxisAlignment("center")
 }
 
