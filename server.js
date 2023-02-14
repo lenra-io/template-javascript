@@ -98,10 +98,11 @@ async function initManifest() {
         listenerHandlers = tempManifest.listeners || {};
         viewHandlers = tempManifest.views;
         listenerHandlers = tempManifest.listeners || {};
-        manifest = {
-            rootView: tempManifest.rootView
-        };
+        delete tempManifest.views;
+        delete tempManifest.listeners;
+        manifest = tempManifest;
     }
+
     return Promise.resolve(manifest);
 }
 

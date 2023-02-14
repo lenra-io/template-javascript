@@ -15,6 +15,14 @@ module.exports = async () => {
       onSessionStart: require('./listeners/onSessionStart'),
       onUserFirstJoin: require('./listeners/onUserFirstJoin')
     },
-    rootView: 'main'
+    lenraRoutes: [
+      {
+        path: "/",
+        widget: {
+          type: "view",
+          name: "main"
+        }
+      }
+    ]
   }
 }
