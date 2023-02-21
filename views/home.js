@@ -1,6 +1,6 @@
 'use strict'
 
-const { Flex, View } = require("@lenra/components")
+const { Flex, View, Button } = require("@lenra/components")
 
 module.exports = (_data, _props) => {
     return Flex(
@@ -14,6 +14,15 @@ module.exports = (_data, _props) => {
                 "user": "global"
             })
             .props({ text: "The common counter" }),
+
+        {
+            type: "button",
+            text: "@lenra",
+            onPressed: {
+                action: "@lenra:navTo",
+                props: { path: "/newPage" }
+            }
+        }
     )
         .direction("vertical")
         .spacing(16)

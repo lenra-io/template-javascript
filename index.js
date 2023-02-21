@@ -8,6 +8,7 @@ module.exports = async () => {
       counter: require('./views/counter'),
       home: require('./views/home'),
       menu: require('./views/menu'),
+      newPage: require('./views/newPage'),
     },
     listeners: {
       increment: require('./listeners/increment'),
@@ -21,6 +22,13 @@ module.exports = async () => {
         widget: {
           type: "view",
           name: "main"
+        }
+      },
+      {
+        path: "/newPage",
+        widget: {
+          type: "view",
+          name: "newPage"
         }
       }
     ]
