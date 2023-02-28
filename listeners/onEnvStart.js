@@ -15,4 +15,7 @@ module.exports = async (props, event, api) => {
             "user": "global"
         });
     }
+
+    let wh = await apiService.createWebhook(api);
+    console.log(wh.data);
 }

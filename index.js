@@ -11,6 +11,7 @@ module.exports = async () => {
     },
     listeners: {
       increment: require('./listeners/increment'),
+      incrementGlobal: require('./listeners/incrementGlobal'),
       onEnvStart: require('./listeners/onEnvStart'),
       onSessionStart: require('./listeners/onSessionStart'),
       onUserFirstJoin: require('./listeners/onUserFirstJoin')

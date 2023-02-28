@@ -17,6 +17,9 @@ module.exports = {
     },
     executeQuery(api, coll, query) {
         return axios.post(`${api.url}/app/colls/${coll}/docs/find`, query, options(api));
+    },
+    createWebhook(api) {
+        return axios.post(`${api.url}/app/webhooks`, {action: "incrementGlobal", props: {}}, options(api));
     }
 }
 
