@@ -19,7 +19,7 @@ module.exports = {
         return axios.post(`${api.url}/app/colls/${coll}/docs/find`, query, options(api));
     },
     createWebhook(api) {
-        return axios.post(`${api.url}/app/webhooks`, {action: "incrementGlobal", props: {}}, options(api));
+        return axios.post(`${api.url}/app/crons`, {listener_name: "incrementGlobal", schedule: "* * * * */1"}, options(api));
     }
 }
 

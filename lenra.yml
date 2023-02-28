@@ -31,3 +31,6 @@ generator:
       - "!/resources/"
       - "!/services/"
       - "!/views/"
+dev:
+  devtool:
+    tag: local
