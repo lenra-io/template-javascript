@@ -18,8 +18,8 @@ module.exports = {
     executeQuery(api, coll, query) {
         return axios.post(`${api.url}/app/colls/${coll}/docs/find`, query, options(api));
     },
-    createWebhook(api) {
-        return axios.post(`${api.url}/app/crons`, {listener_name: "incrementGlobal", schedule: "* * * * */1"}, options(api));
+    createCron(api) {
+        return axios.post(`${api.url}/app/crons`, {listener_name: "incrementGlobal", schedule: "* * * * *"}, options(api));
     }
 }
 
