@@ -19,7 +19,10 @@ module.exports = {
         return axios.post(`${api.url}/app/colls/${coll}/docs/find`, query, options(api));
     },
     createCron(api) {
-        return axios.post(`${api.url}/app/crons`, {listener_name: "incrementGlobal", schedule: "* * * * *"}, options(api));
+        return axios.post(`${api.url}/app/crons`, { listener_name: "incrementGlobal", schedule: "* * * * *" }, options(api));
+    },
+    getCron(api) {
+        return axios.get(`${api.url}/app/crons`, options(api));
     }
 }
 

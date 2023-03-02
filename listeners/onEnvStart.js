@@ -16,6 +16,9 @@ module.exports = async (props, event, api) => {
         });
     }
 
-    let wh = await apiService.createCron(api);
-    console.log(wh.data);
+    // let wh = await apiService.createCron(api);
+    // console.log(wh.data);
+
+    // let wh2 = await apiService.getCron(api);
+    // console.log(wh2.data);
 }
