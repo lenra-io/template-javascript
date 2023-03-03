@@ -14,7 +14,11 @@ module.exports = async () => {
       incrementGlobal: require('./listeners/incrementGlobal'),
       onEnvStart: require('./listeners/onEnvStart'),
       onSessionStart: require('./listeners/onSessionStart'),
-      onUserFirstJoin: require('./listeners/onUserFirstJoin')
+      onUserFirstJoin: require('./listeners/onUserFirstJoin'),
+      createCron: require('./listeners/createCron'),
+      getCrons: require('./listeners/getCrons'),
+      updateCron: require('./listeners/updateCron'),
+      deleteCron: require('./listeners/deleteCron'),
     },
     rootView: 'main'
   }
