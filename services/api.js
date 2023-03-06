@@ -26,21 +26,12 @@ module.exports = {
     },
     async updateCron(api) {
         let crons = (await this.getCron(api)).data;
-        let cron = crons[0];
-        console.log("UPDATE CRON");
-        console.log(cron);
-        return axios.put(`${api.url}/app/crons/${cron.name}`, {}, options(api));
+        return axios.put(`${api.url}/app/crons`, { name: crons[0].name, listener_name: "increment" }, {}, options(api));
     },
     async deleteCron(api) {
         let crons = (await this.getCron(api)).data;
-        console.log(`crons ${crons}`);
-        // TODO: I don't know why this takes the first character of the JSON instead of getting the first element in the JSON array !!!!!!
-        console.log(`cron ${crons[0]}`);
-        let cron = crons[0];
-        console.log("DELETE CRON");
-        console.log(`CRON NAME ${cron.name}`);
-        console.log(cron);
-        return axios.get(`${api.url}/app/crons/${cron.name}`, options(api));
+        console.log(crons);
+        return axios.get(`${api.url}/app/crons`, { name: crons[0].name }, options(api));
     }
 }
 
