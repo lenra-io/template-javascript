@@ -15,8 +15,6 @@ generator:
       - server.js
     ports:
       - 3000
-    envs:
-      suppress_lock: "true"
     healthcheck:
       cmd: curl --fail http://localhost:8080/_/health
       start: 3s
@@ -31,3 +29,9 @@ generator:
       - "!/resources/"
       - "!/services/"
       - "!/views/"
+dev:
+  dofigen:
+    cmd:
+    - npm run debug
+    ports:
+    - 9229
