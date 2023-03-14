@@ -15,6 +15,8 @@ generator:
       - server.js
     ports:
       - 3000
+    envs:
+      suppress_lock: "true"
     healthcheck:
       cmd: curl --fail http://localhost:8080/_/health
       start: 3s

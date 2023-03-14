@@ -12,7 +12,7 @@
         }, {
             "label": "lenra-build",
             "type": "shell",
-            "command": "lenra build --expose",
+            "command": "lenra build",
             "group":"build"
         }
     ]
