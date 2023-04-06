@@ -1,7 +1,7 @@
 componentsApi: "1.0"
 generator:
   dofigen:
-    from: "docker.io/bitnami/node:16"
+    from: "docker.io/bitnami/node:18"
     workdir: /app
     root:
       script:
@@ -9,14 +9,12 @@ generator:
     adds:
       - .
     script:
-      - npm i --omit=dev
+      - npm ci
     cmd:
       - node
       - server.js
     ports:
       - 3000
-    envs:
-      suppress_lock: "true"
     healthcheck:
       cmd: curl --fail http://localhost:8080/_/health
       start: 3s
