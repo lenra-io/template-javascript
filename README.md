@@ -46,14 +46,9 @@ Installation instructions can be found here https://github.com/lenra-io/lenra_cl
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-To run the Javascript template you first need to build the application.
+To run the Javascript template just run:
 ```console
-lenra build
-```
-
-Then you can start it.
-```console
-lenra start
+lenra dev
 ```
 
 You can then access the application by opening [`localhost:4000`](http://localhost:4000) on your web browser. 
