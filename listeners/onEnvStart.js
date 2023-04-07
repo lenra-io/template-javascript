@@ -4,6 +4,7 @@ const apiService = require("../services/api");
 
 
 module.exports = async (props, event, api) => {
+    console.log(api);
     let res = await apiService.executeQuery(api, "counter", {
         "user": "global"
     })
