@@ -4,7 +4,7 @@ const { Container, Flex, colors, padding, Image, Flexible, Text } = require("@le
 
 module.exports = (_data, _props) => {
   return Container(
-    Flex(
+    Flex([
       Container(
         Image("logo.png")
       )
@@ -20,7 +20,7 @@ module.exports = (_data, _props) => {
             })
         )
       )
-    )
+    ])
       .fillParent(true)
       .mainAxisAlignment("spaceBetween")
       .crossAxisAlignment("center")
