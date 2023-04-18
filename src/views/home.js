@@ -1,8 +1,8 @@
-'use strict'
+import { Api } from "@lenra/app-server";
+import { Flex, View } from "@lenra/components";
+import { Counter } from "../classes/Counter.js";
 
-const { Flex, View } = require("@lenra/components")
-
-module.exports = (_data, _props) => {
+export default function(_data, _props) {
     return Flex([
         View("counter")
             .data("counter", {

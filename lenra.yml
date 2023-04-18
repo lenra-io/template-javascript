@@ -1,18 +1,24 @@
 componentsApi: "1.0"
 generator:
   dofigen:
-    from: "docker.io/bitnami/node:18"
-    workdir: /app
-    root:
-      script:
-        - chown -R 1000 /app
+    builders:
+      - from: "docker.io/bitnami/node:18"
+        workdir: /app
+        root:
+          script:
+            - chown -R 1000 /app
+        adds:
+          - "*.json"
+        script:
+          - npm ci
+    from: builder-0
     adds:
       - .
     script:
-      - npm ci
+      - ls -al
     cmd:
-      - node
-      - server.js
+      - npm
+      - start
     ports:
       - 3000
     healthcheck:
@@ -23,9 +29,4 @@ generator:
     ignores:
       - "**"
       - "!/*.json"
-      - "!/server.js"
-      - "!/index.js"
-      - "!/listeners/"
-      - "!/resources/"
-      - "!/services/"
-      - "!/views/"
+      - "!/src/"

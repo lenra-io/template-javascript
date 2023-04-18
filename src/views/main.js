@@ -1,8 +1,6 @@
-'use strict'
+import { Flex, View } from "@lenra/components";
 
-const { Flex, View } = require("@lenra/components")
-
-module.exports = (_data, _props) => {
+export default function(_data, _props) {
   return Flex([
     View("menu"),
     View("home")
