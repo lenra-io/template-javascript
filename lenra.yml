@@ -29,3 +29,9 @@ generator:
       - "!/resources/"
       - "!/services/"
       - "!/views/"
+dev:
+  dofigen:
+    cmd:
+    - npm run debug
+    ports:
+    - 9229
