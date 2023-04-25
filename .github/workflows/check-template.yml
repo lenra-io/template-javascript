@@ -19,6 +19,6 @@ jobs:
       - name: Build app
         run: lenra build --expose app
       - name: Start app
-        run: lenra start
+        run: RUST_LOG=debug lenra start
       - name: Check template
         run: lenra check template --strict

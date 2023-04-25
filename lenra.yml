@@ -14,8 +14,6 @@ generator:
     from: builder-0
     adds:
       - .
-    script:
-      - ls -al
     cmd:
       - npm
       - start
