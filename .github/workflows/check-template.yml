@@ -16,6 +16,11 @@ jobs:
       - name: Build app
         run: ./lenra build --expose app
       - name: Start app
-        run: docker-compose -f ".lenra/docker-compose.yml" up -d --wait
+        run: docker-compose --version && docker compose --version
+      - name: Start app
+        run: docker-compose -f ".lenra/docker-compose.yml" up -d
       - name: Check template
         run: ./lenra check template --strict
+      - name: Stop app
+        if: always()
+        run: docker-compose -f ".lenra/docker-compose.yml" down
