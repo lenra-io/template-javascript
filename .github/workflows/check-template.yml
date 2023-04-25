@@ -1,0 +1,24 @@
+name: Check Lenra Template
+
+on:
+  push:
+
+jobs:
+  release:
+    name: Check template
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Lenra CLI
+        uses: actions-rs/cargo@v1
+        with:
+          command: install
+          args: lenra_cli@~1.0.0-beta.0
+      - name: Build app
+        run: lenra build --expose app
+      - name: Start app
+        run: lenra start
+      - name: Check template
+        run: lenra check template --strict
