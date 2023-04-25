@@ -12,13 +12,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install Lenra CLI
-        uses: actions-rs/cargo@v1
-        with:
-          command: install
-          args: lenra_cli@~1.0.0-beta.0
+        run: wget -c https://github.com/lenra-io/lenra_cli/releases/latest/download/lenra-linux-x86_64.tar.gz -O - | tar -xz
       - name: Build app
         run: lenra build --expose app
       - name: Start app
-        run: RUST_LOG=debug lenra start
+        run: ls -al && RUST_LOG=debug lenra start
       - name: Check template
         run: lenra check template --strict
