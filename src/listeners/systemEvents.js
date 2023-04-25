@@ -9,16 +9,16 @@ import { Counter } from "../classes/Counter.js";
  * @param {import("@lenra/app-server").Api} api 
  */
 export async function onEnvStart(_props, _event, api) {
-    let counters = await api.executeQuery(Counter, { user: "global" })
+    let counters = await api.data.find(Counter, { user: "global" })
     if (counters.length == 0) {
-        await api.createDoc(new Counter("global", 0));
+        await api.data.createDoc(new Counter("global", 0));
     }
 }
 
 export async function onUserFirstJoin(_props, _event, api) {
-    let counters = await api.executeQuery(Counter, { user: "@me" })
+    let counters = await api.data.find(Counter, { user: "@me" })
     if (counters.length == 0) {
-        await api.createDoc(new Counter("@me", 0))
+        await api.data.createDoc(new Counter("@me", 0))
     }
 }
 

@@ -1,4 +1,5 @@
 import { Flex, Text, Button } from "@lenra/components";
+import { listeners } from "../index.gen.js";
 
 /**
  * 
@@ -10,7 +11,7 @@ export default function ([counter], { text }) {
   return Flex([
     Text(`${text}: ${counter.count}`),
     Button("+")
-      .onPressed("increment", {
+      .onPressed(listeners.increment, {
         "id": counter._id
       })
   ])

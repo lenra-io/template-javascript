@@ -10,8 +10,8 @@ import { Counter } from "../classes/Counter.js";
  * @returns 
  */
 export default async function(props, _event, api) {
-    let counter = await api.getDoc(Counter, props.id);
+    let counter = await api.data.getDoc(Counter, props.id);
     counter.count += 1;
-    await api.updateDoc(counter);
+    await api.data.updateDoc(counter);
     return {};
 }
