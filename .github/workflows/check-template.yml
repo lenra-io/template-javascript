@@ -16,6 +16,6 @@ jobs:
       - name: Build app
         run: ./lenra build --expose app
       - name: Start app
-        run: ls -al && RUST_LOG=debug ./lenra start
+        run: docker-compose -f .lenra/docker-compose.yml up -d --wait
       - name: Check template
         run: ./lenra check template --strict
