@@ -1,8 +1,6 @@
-'use strict'
+import { Container, Flex, colors, padding, Image, Flexible, Text } from "@lenra/components";
 
-const { Container, Flex, colors, padding, Image, Flexible, Text } = require("@lenra/components")
-
-module.exports = (_data, _props) => {
+export default function(_data, _props) {
   return Container(
     Flex([
       Container(
