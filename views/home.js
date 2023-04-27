@@ -20,8 +20,12 @@ module.exports = (_data, _props) => {
             text: "@lenra",
             onPressed: {
                 action: "@lenra:navTo",
-                props: { path: "/newPage" }
+                props: { path: "/newPage/1" }
             }
+        },
+        {
+            type: "text",
+            value: "@me"
         }
     )
         .direction("vertical")

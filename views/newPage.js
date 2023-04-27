@@ -7,7 +7,8 @@ module.exports = (_data, _props) => {
         onPressed: {
             action: "@lenra:navTo",
             props: {
-                path: "/"
+                path: "/",
+                test: "@id"
             }
         }
     }

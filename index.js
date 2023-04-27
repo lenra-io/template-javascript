@@ -18,14 +18,14 @@ module.exports = async () => {
     },
     lenraRoutes: [
       {
-        path: "/",
+        path: "/:id",
         view: {
           type: "view",
           name: "main"
         }
       },
       {
-        path: "/newPage",
+        path: "/newPage/:id",
         view: {
           type: "view",
           name: "newPage"
