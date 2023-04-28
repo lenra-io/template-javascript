@@ -13,7 +13,17 @@ export const lenraRoutes = [
         path: "/newPage/:id",
         view: {
             type: "view",
-            name: "newPage"
+            name: "newPage",
+            props: {
+                id: "@route.id",
+                route: "@route",
+                me: "@me"
+            },
+            query: {
+                id: "@me",
+                route: "@route",
+                routeId: "@route.id"
+            }
         }
     }
 ]
