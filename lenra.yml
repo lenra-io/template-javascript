@@ -28,3 +28,6 @@ generator:
       - "**"
       - "!/*.json"
       - "!/src/"
+dev:
+  devtool:
+    tag: local
