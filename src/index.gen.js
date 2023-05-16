@@ -3,7 +3,8 @@ export const views = {
 	"home": "home",
 	"main": "main",
 	"menu": "menu",
-	"newPage": "newPage"
+	"newPage": "newPage",
+	"test": "test"
 };
 export const listeners = {
 	"increment": "increment",

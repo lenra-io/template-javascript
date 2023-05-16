@@ -26,6 +26,13 @@ export default function (_data, _props) {
         {
             type: "text",
             value: "@me"
+        },
+        {
+            type: "view",
+            name: "test",
+            context: {
+                me: true
+            }
         }
     ])
         .direction("vertical")
