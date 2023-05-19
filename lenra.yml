@@ -21,11 +21,6 @@ generator:
       NODE_ENV: production
     ports:
       - 3000
-    healthcheck:
-      cmd: curl --fail http://localhost:8080/_/health
-      start: 3s
-      interval: 3s
-      timeout: 1s
     ignores:
       - "**"
       - "!/*.json"
