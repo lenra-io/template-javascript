@@ -10,20 +10,17 @@ generator:
         adds:
           - "*.json"
         script:
-          - npm ci
+          - npm ci --omit=dev
     from: builder-0
     adds:
       - .
     cmd:
-      - npm
-      - start
+      - node
+      - node_modules/@lenra/app-server/dist/bin/app-lenra.js
+    envs:
+      NODE_ENV: production
     ports:
       - 3000
-    healthcheck:
-      cmd: curl --fail http://localhost:8080/_/health
-      start: 3s
-      interval: 3s
-      timeout: 1s
     ignores:
       - "**"
       - "!/*.json"
