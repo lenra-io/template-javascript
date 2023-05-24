@@ -14,16 +14,10 @@ export const lenraRoutes = [
         view: {
             type: "view",
             name: "newPage",
-            props: {
-                id: "@route.id",
-                route: "@route",
-                me: "@me"
-            },
-            query: {
-                id: "@me",
-                route: "@route",
-                routeId: "@route.id"
+            context: {
+                me: true,
+                pathParams: true,
             }
-        }
+        },
     }
 ]

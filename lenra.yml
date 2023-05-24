@@ -27,4 +27,4 @@ generator:
       - "!/src/"
 dev:
   devtool:
-    tag: local
+    tag: alpha
