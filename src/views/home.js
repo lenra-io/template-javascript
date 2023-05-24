@@ -15,6 +15,22 @@ export default function (_data, _props) {
                 "user": "global"
             })
             .props({ text: "The common counter" }),
+        {
+            type: "button",
+            text: "@lenra",
+            onPressed: {
+                action: "@lenra:navTo",
+                props: { path: "/newPage/1" }
+            }
+        },
+        {
+            type: "view",
+            name: "test",
+            context: {
+                me: true,
+                pathParams: true,
+            }
+        }
     ])
         .direction("vertical")
         .spacing(16)
