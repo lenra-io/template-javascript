@@ -7,3 +7,12 @@ export const lenraRoutes = [
         view: View(views.main)
     }
 ];
+
+export const jsonRoutes = [
+    {
+        path: "/counter/me",
+        view: View(views.json.counter).data(DataApi.collectionName(Counter), {
+            "user": "@me"
+        })
+    }
+];
