@@ -1,6 +1,9 @@
 export const views = {
 	"counter": "counter",
 	"home": "home",
+	"json": {
+		"counter": "json.counter"
+	},
 	"main": "main",
 	"menu": "menu"
 };

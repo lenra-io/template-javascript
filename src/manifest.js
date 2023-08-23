@@ -1,5 +1,7 @@
 import { View } from "@lenra/components";
 import { views } from "./index.gen.js";
+import { DataApi } from "@lenra/app-server";
+import { Counter } from "./classes/Counter.js";
 
 export const lenraRoutes = [
     {
@@ -9,6 +11,12 @@ export const lenraRoutes = [
 ];
 
 export const jsonRoutes = [
+    {
+        path: "/counter/global",
+        view: View(views.json.counter).data(DataApi.collectionName(Counter), {
+            "user": "global"
+        })
+    },
     {
         path: "/counter/me",
         view: View(views.json.counter).data(DataApi.collectionName(Counter), {
