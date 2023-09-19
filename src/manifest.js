@@ -1,5 +1,4 @@
 import { View } from "@lenra/app";
-import { DataApi } from "@lenra/app";
 import { Counter } from "./classes/Counter.js";
 
 /**
