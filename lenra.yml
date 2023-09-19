@@ -16,7 +16,7 @@ generator:
       - .
     cmd:
       - node
-      - node_modules/@lenra/app-server/dist/bin/app-lenra.js
+      - node_modules/@lenra/app/dist/bin/app-lenra.js
     envs:
       NODE_ENV: production
     ports:
@@ -25,3 +25,6 @@ generator:
       - "**"
       - "!/*.json"
       - "!/src/"
+dev:
+  devtool:
+    tag: local
