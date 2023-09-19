@@ -51,6 +51,13 @@ To run the Javascript template just run:
 lenra dev
 ```
 
+### Classique client
+
+You can use one of the client libs to create a custom client for your application.
+You can find the client libs here: https://github.com/search?q=topic%3Alenra+topic%3Aclient+topic%3Alib&sort=stargazers&type=repositories
+
+### Lenra client (beta)
+
 You can then access the application by opening [`localhost:4000`](http://localhost:4000) on your web browser. 
 
 This template is a basic implementation of a Lenra application using the Javascript language. You can get your application started by using this template.
