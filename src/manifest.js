@@ -1,26 +1,34 @@
-import { View } from "@lenra/components";
-import { views } from "./index.gen.js";
-import { DataApi } from "@lenra/app-server";
+import { View } from "@lenra/app";
 import { Counter } from "./classes/Counter.js";
 
-export const lenraRoutes = [
-    {
-        path: "/",
-        view: View(views.main)
-    }
-];
+/**
+ * @type {import("@lenra/app").Manifest["json"]}
+ */
+export const json = {
+    routes: [
+        {
+            path: "/counter/global",
+            view: View("counter").find(Counter, {
+                "user": "global"
+            })
+        },
+        {
+            path: "/counter/me",
+            view: View("counter").find(Counter, {
+                "user": "@me"
+            })
+        }
+    ]
+};
 
-export const jsonRoutes = [
-    {
-        path: "/counter/global",
-        view: View(views.json.counter).data(DataApi.collectionName(Counter), {
-            "user": "global"
-        })
-    },
-    {
-        path: "/counter/me",
-        view: View(views.json.counter).data(DataApi.collectionName(Counter), {
-            "user": "@me"
-        })
-    }
-];
+/**
+ * @type {import("@lenra/app").Manifest["lenra"]}
+ */
+export const lenra = {
+    routes: [
+        {
+            path: "/",
+            view: View("lenra.main")
+        }
+    ]
+};
