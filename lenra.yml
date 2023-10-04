@@ -24,3 +24,8 @@ generator:
       - "**"
       - "!/*.json"
       - "!/src/"
+    healthcheck:
+      cmd: "CMD wget --spider -q http://localhost:8080/health"
+      interval: 1s
+      retries: 5
+      start: 10s
