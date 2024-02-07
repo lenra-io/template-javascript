@@ -3,6 +3,9 @@
 *** This README was created with https://github.com/othneildrew/Best-README-Template
 -->
 
+Warning ! 
+This project have been archived and is no longer maintained.
+It acually works fine but we've replaced it by [Bun JS template](https://github.com/lenra-io/template-bun-js) in order to provide a better experience to our users and improve application speed.
 
 
 <!-- PROJECT SHIELDS -->
